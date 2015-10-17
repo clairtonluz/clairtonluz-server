@@ -33,29 +33,5 @@ server.listen(config.port, config.ip, function () {
     console.log('Express server listening on %d, in %s mode', config.port, app.get('env'));
 });
 
-// error handlers
-
-//// development error handler
-//// will print stacktrace
-//if (app.get('env') === 'development') {
-//    app.use(function (err, req, res, next) {
-//        res.status(err.status || 500);
-//        res.render('error', {
-//            message: err.message,
-//            error: err
-//        });
-//    });
-//}
-//
-//// production error handler
-//// no stacktraces leaked to user
-//app.use(function (err, req, res, next) {
-//    res.status(err.status || 500);
-//    res.render('error', {
-//        message: err.message,
-//        error: {}
-//    });
-//});
-
 // Expose app
 exports = module.exports = app;

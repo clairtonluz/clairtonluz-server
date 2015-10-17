@@ -13,6 +13,14 @@ var path = require('path');
 var config = require('./environment');
 var logger = require('morgan');
 
+var allowCrossDomain = function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+
+    next();
+}
+
 module.exports = function (app) {
     var env = app.get('env');
 
@@ -21,6 +29,7 @@ module.exports = function (app) {
     app.use(bodyParser.urlencoded({extended: false}));
     app.use(bodyParser.json());
     app.use(cookieParser());
+    app.use(allowCrossDomain);
     app.use(express.static(path.join(config.root, 'public')));
     app.set('appPath', path.join(config.root, 'public'));
 
