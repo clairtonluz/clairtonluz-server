@@ -8,7 +8,7 @@ var PostSchema = new Schema({
     image: {type: String, trim: true},
     summary: String,
     content: String,
-    createBy: String,
+    createBy: {type:String, default: 'Clairton Luz'},
     createAt: {type: Date, default: Date.now},
     active: {type: Boolean, default: true}
 });

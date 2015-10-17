@@ -10,7 +10,7 @@ exports.index = function (req, res) {
             return handleError(res, err);
         }
         return res.status(200).json(posts);
-    });
+    }).sort({"createAt": -1});
 };
 
 // Get a single post
