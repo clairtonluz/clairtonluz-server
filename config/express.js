@@ -34,7 +34,7 @@ module.exports = function (app) {
     app.set('appPath', path.join(config.root, 'public'));
 
     if ('production' === env) {
-        app.use(morgan('dev'));
+        app.use(logger('prod'));
     }
 
     if ('development' === env || 'test' === env) {
